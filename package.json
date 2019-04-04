@@ -1,0 +1,21 @@
+{
+  "name": "vuessr",
+  "version": "1.0.0",
+  "description": "vue ssr",
+  "repository": {
+    "url": "www.baidu.com"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.2",
+    "vue-server-renderer": "^2.6.10"
+  }
+}
