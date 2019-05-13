@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "vue ssr",
   "repository": {
-    "url": "www.baidu.com"
+    "url": "https://github.com/nicewahson/ssr-test.git"
   },
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node index.js"
   },
   "keywords": [],
   "author": "",
@@ -17,5 +18,8 @@
     "vue": "^2.6.10",
     "vue-router": "^3.0.2",
     "vue-server-renderer": "^2.6.10"
+  },
+  "devDependencies": {
+    "babel-register": "^6.26.0"
   }
 }
