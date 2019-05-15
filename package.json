@@ -14,12 +14,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/register": "^7.4.4",
     "express": "^4.16.4",
     "vue": "^2.6.10",
     "vue-router": "^3.0.2",
     "vue-server-renderer": "^2.6.10"
   },
   "devDependencies": {
-    "babel-register": "^6.26.0"
+    "@babel/preset-env": "^7.4.4",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2"
   }
 }
