@@ -16,6 +16,7 @@
   "dependencies": {
     "@babel/core": "^7.4.4",
     "@babel/register": "^7.4.4",
+    "cross-env": "^5.2.0",
     "express": "^4.16.4",
     "vue": "^2.6.10",
     "vue-router": "^3.0.2",

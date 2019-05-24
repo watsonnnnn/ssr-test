@@ -3,7 +3,6 @@ import Vue from 'vue';
 import {createRouter} from './router';
 
 export default function createApp(context){
-
   const router = createRouter();
   const app = new Vue({
     data: {

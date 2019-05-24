@@ -10,16 +10,25 @@ const renderer = require('vue-server-renderer').createRenderer({
 })
 
 server.get('*', (req, res) => {
+  if(req.url == '/favicon.ico'){
+    res.end();
+    return;
+  }
   const context = { url: req.url }
   
   createApp(context).then(app => {
-
+    res.set('Content-Type', 'text/html;charset=utf8');
     renderer.renderToString(app, (err, html) => {
       if (err) {
-        res.status(500).end('Internal Server Error 500')
+        console.log(err)
+        if (err.code === 404) {
+          res.status(404).end('Page not found');
+        } else {
+          res.status(500).end('Internal Server Error 500 中文');
+        }
         return
       }
-      res.set('Content-Type', 'text/html;charset=utf8').end(html)
+      res.end(html)
     })
 
   })
