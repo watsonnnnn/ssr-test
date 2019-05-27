@@ -3,19 +3,20 @@ const Router = require('vue-router')
 
 Vue.use(Router)
 
-export function createRouter(){
+module.exports = function createRouter(){
   const router = new Router({
     mode: 'history',
     routes: [{
       path: '/home',
-      component: {
-        template: '<div>home</div>'
-      }
-    },{
+      component: () => import('./components/Bar.vue')
+    }, {
       path: '/login',
       component: {
         template: '<div>login</div>'
       }
+    }, {
+      path: '/item/:id',
+      component: () => import('./components/Item.vue')
     }]
   })
 

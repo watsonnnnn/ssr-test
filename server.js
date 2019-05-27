@@ -1,8 +1,8 @@
 // const Vue = require('vue')
 // const server = require('express')()
-import Vue from 'vue';
-import express from 'express';
-import createApp from './entry-server';
+const Vue = require('vue');
+const express = require('express');
+const createApp = require('./entry-server');
 
 const server = express();
 const renderer = require('vue-server-renderer').createRenderer({
