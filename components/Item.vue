@@ -4,7 +4,12 @@
 
 <script>
 export default {
+  name: 'Item',
+  data(){
+    return {}
+  },
   asyncData ({ store, route }) {
+    console.log(store);
     return store.dispatch('fetchItem', route.params.id)
   },
   computed: {

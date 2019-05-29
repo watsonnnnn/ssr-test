@@ -5,12 +5,17 @@ const express = require('express');
 const createApp = require('./entry-server');
 
 const server = express();
-const renderer = require('vue-server-renderer').createRenderer({
-  template: require('fs').readFileSync('./template.html', 'utf-8')
+const { createBundleRenderer } = require('vue-server-renderer');
+const serverBundle = require('./dist/vue-ssr-server-bundle.json');
+const clientManifest = require('./dist/vue-ssr-client-manifest.json');
+
+const renderer = createBundleRenderer(serverBundle, {
+  template: require('fs').readFileSync('./template.html', 'utf-8'),
+  clientManifest
 })
 
 server.get('*', (req, res) => {
-  if(req.url == '/favicon.ico'){
+  if(req.url == '/favicon.ico' || req.url.indexOf('.js')>-1){
     res.end();
     return;
   }

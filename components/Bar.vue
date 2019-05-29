@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: 'Bar',
   components: {},
   props: {},
   data() {
@@ -22,5 +23,3 @@ export default {
   mounted() {},
 };
 </script>
-<style lang="less" scoped>
-</style>

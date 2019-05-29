@@ -1,11 +1,13 @@
-const merge = require('webpack-merge')
-const nodeExternals = require('webpack-node-externals')
-const baseConfig = require('./webpack.base.config.js')
-const VueSSRServerPlugin = require('vue-server-renderer/server-plugin')
+const merge = require('webpack-merge');
+const nodeExternals = require('webpack-node-externals');
+const baseConfig = require('./webpack.base.config.js');
+const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
+const path = require('path');
 
 module.exports = merge(baseConfig, {
   // 将 entry 指向应用程序的 server entry 文件
-  entry: '/path/to/entry-server.js',
+  mode: 'production',
+  entry: path.join(__dirname, '../entry-server.js'),
 
   // 这允许 webpack 以 Node 适用方式(Node-appropriate fashion)处理动态导入(dynamic import)，
   // 并且还会在编译 Vue 组件时，
