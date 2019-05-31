@@ -9,7 +9,6 @@ module.exports = function(context) {
       if (!matchedComponents.length) {
         return reject({ code: 404 })
       }
-      console.log(matchedComponents.length)
 
       // 对所有匹配的路由组件调用 `asyncData()`
       Promise.all(matchedComponents.map(Component => {
@@ -19,7 +18,7 @@ module.exports = function(context) {
             route: router.currentRoute
           })
         }else{
-          return () => {}
+          return Promise.resolve()
         }
       })).then(() => {
         // 在所有预取钩子(preFetch hook) resolve 后，
@@ -28,11 +27,10 @@ module.exports = function(context) {
         // 并且 `template` 选项用于 renderer 时，
         // 状态将自动序列化为 `window.__INITIAL_STATE__`，并注入 HTML。
         context.state = store.state
+      }).catch(e=>{
       })
 
       resolve(app)
     }, reject)
-  }).catch(ex=>{
-    console.log(ex,'ex===')
   })
 }

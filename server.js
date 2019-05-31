@@ -1,8 +1,5 @@
-// const Vue = require('vue')
-// const server = require('express')()
 const Vue = require('vue');
 const express = require('express');
-const createApp = require('./entry-server');
 
 const server = express();
 const { createBundleRenderer } = require('vue-server-renderer');
@@ -10,6 +7,7 @@ const serverBundle = require('./dist/vue-ssr-server-bundle.json');
 const clientManifest = require('./dist/vue-ssr-client-manifest.json');
 
 const renderer = createBundleRenderer(serverBundle, {
+  runInNewContext: false,
   template: require('fs').readFileSync('./template.html', 'utf-8'),
   clientManifest
 })
@@ -21,11 +19,10 @@ server.get('*', (req, res) => {
   }
   const context = { url: req.url }
   
-  createApp(context).then(app => {
     res.set('Content-Type', 'text/html;charset=utf8');
-    renderer.renderToString(app, (err, html) => {
+    renderer.renderToString(context, (err, html) => {
       if (err) {
-        console.log(err)
+        console.log(err,'===')
         if (err.code === 404) {
           res.status(404).end('Page not found');
         } else {
@@ -35,8 +32,6 @@ server.get('*', (req, res) => {
       }
       res.end(html)
     })
-
-  })
 })
 
 server.listen(8088, ()=>{

@@ -1,4 +1,4 @@
-import { createApp } from './app'
+const createApp = require('./app');
 
 const { app, router } = createApp()
 
@@ -22,7 +22,6 @@ router.onReady(() => {
     if (!activated.length) {
       return next()
     }
-
     // 这里如果有加载指示器 (loading indicator)，就触发
 
     Promise.all(activated.map(c => {
@@ -30,7 +29,6 @@ router.onReady(() => {
         return c.asyncData({ store, route: to })
       }
     })).then(() => {
-
       // 停止加载指示器(loading indicator)
 
       next()

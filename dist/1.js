@@ -44,7 +44,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _nod
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n//\n//\n//\n//\nexports[\"default\"] = {\n  name: 'Item',\n  data: function data() {\n    return {};\n  },\n  asyncData: function asyncData(_ref) {\n    var store = _ref.store,\n        route = _ref.route;\n    console.log(store);\n    return store.dispatch('fetchItem', route.params.id);\n  },\n  computed: {\n    item: function item() {\n      return this.$store.state.items[this.$route.params.id];\n    }\n  }\n};\n\n//# sourceURL=webpack:///./components/Item.vue?./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n//\n//\n//\n//\nexports[\"default\"] = {\n  name: 'Item',\n  data: function data() {\n    return {};\n  },\n  asyncData: function asyncData(_ref) {\n    var store = _ref.store,\n        route = _ref.route;\n    return store.dispatch('fetchItem', route.params.id);\n  },\n  computed: {\n    item: function item() {\n      return this.$store.state.items[this.$route.params.id];\n    }\n  }\n};\n\n//# sourceURL=webpack:///./components/Item.vue?./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 

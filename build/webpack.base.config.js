@@ -15,10 +15,11 @@ module.exports = {
   module: {
     rules: [{
       test: /\.vue$/,
-      loader: 'vue-loader'
+      use: ['vue-loader']
     }, {
       test: /\.js$/,
-      loader: 'babel-loader'
+      exclude: /node_module/,
+      use: ['babel-loader']
     }]
   },
   plugins: [
