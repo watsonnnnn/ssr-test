@@ -1,13 +1,15 @@
 const Vue = require('vue');
+const App = require('./App.vue').default;
 const createRouter = require('./router');
 const createStore = require('./store');
 const { sync } = require('vuex-router-sync');
-import App from './App.vue';
 
 module.exports = function createApp(){
   const router = createRouter();
   const store = createStore();
+
   sync(store, router);
+
   const app = new Vue({
     router, 
     store,
